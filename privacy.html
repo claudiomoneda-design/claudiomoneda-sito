@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informativa Privacy · Claudio Moneda</title>
+<meta name="description" content="Informativa sul trattamento dei dati personali del sito claudiomoneda.com, ai sensi del Regolamento UE 2016/679 (GDPR).">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://claudiomoneda.com/privacy.html">
+
+<!-- Favicon & iOS -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#C17D2A">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:url" content="https://claudiomoneda.com/privacy.html">
+<meta property="og:site_name" content="Claudio Moneda">
+<meta property="og:title" content="Informativa Privacy · Claudio Moneda">
+<meta property="og:description" content="Trattamento dei dati personali del sito claudiomoneda.com, ai sensi del GDPR.">
+<meta property="og:image" content="https://claudiomoneda.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<style>
+/* Self-hosted fonts */
+@font-face { font-family:'DM Mono'; font-style:normal; font-weight:400; font-display:swap; src:url('/fonts/dm-mono-400.woff2') format('woff2'); }
+@font-face { font-family:'DM Mono'; font-style:normal; font-weight:500; font-display:swap; src:url('/fonts/dm-mono-500.woff2') format('woff2'); }
+@font-face { font-family:'Sora'; font-style:normal; font-weight:400; font-display:swap; src:url('/fonts/sora-400.woff2') format('woff2'); }
+@font-face { font-family:'Sora'; font-style:normal; font-weight:600; font-display:swap; src:url('/fonts/sora-600.woff2') format('woff2'); }
+@font-face { font-family:'Sora'; font-style:normal; font-weight:700; font-display:swap; src:url('/fonts/sora-700.woff2') format('woff2'); }
+@font-face { font-family:'Inter'; font-style:normal; font-weight:300; font-display:swap; src:url('/fonts/inter-300.woff2') format('woff2'); }
+@font-face { font-family:'Inter'; font-style:normal; font-weight:400; font-display:swap; src:url('/fonts/inter-400.woff2') format('woff2'); }
+@font-face { font-family:'Inter'; font-style:normal; font-weight:500; font-display:swap; src:url('/fonts/inter-500.woff2') format('woff2'); }
+
+:root {
+  --bg: #FAFAF8;
+  --bg2: #F3F1ED;
+  --amber: #C17D2A;
+  --amber-dim: rgba(193,125,42,0.09);
+  --amber-border: rgba(193,125,42,0.22);
+  --steel: #3E5B6D;
+  --text: #1A1814;
+  --text2: #5A5650;
+  --text3: #9A9690;
+  --border: rgba(0,0,0,0.07);
+  --border2: rgba(0,0,0,0.13);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px; line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 760px; margin: 0 auto; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,250,248,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 32px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.nav-name {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700; font-size: 14px;
+  letter-spacing: 0.03em; color: var(--text);
+  text-decoration: none;
+}
+.nav-back {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text3);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 4px; padding: 4px 10px;
+  transition: all 0.15s;
+}
+.nav-back:hover {
+  color: var(--amber);
+  border-color: var(--amber-border);
+  background: var(--amber-dim);
+}
+
+/* HERO */
+.hero {
+  padding: 80px 32px 56px;
+  border-bottom: 1px solid var(--border);
+}
+.hero-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text3);
+  margin-bottom: 24px;
+}
+.hero-title {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700; line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text); margin-bottom: 18px;
+}
+.hero-sub {
+  font-size: 15px; color: var(--text2);
+  line-height: 1.7; max-width: 580px;
+}
+.hero-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; color: var(--text3);
+  margin-top: 28px; letter-spacing: 0.05em;
+}
+
+/* SECTIONS */
+.section {
+  padding: 48px 32px;
+  border-bottom: 1px solid var(--border);
+}
+.s-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--amber);
+  margin-bottom: 14px;
+}
+.s-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 22px; font-weight: 700;
+  line-height: 1.25; letter-spacing: -0.01em;
+  color: var(--text); margin-bottom: 18px;
+}
+.s-body { color: var(--text2); font-size: 15px; }
+.s-body p { margin-bottom: 14px; }
+.s-body p:last-child { margin-bottom: 0; }
+.s-body strong { color: var(--text); font-weight: 500; }
+.s-body ul {
+  margin: 8px 0 16px 0;
+  padding-left: 0;
+  list-style: none;
+}
+.s-body ul li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 8px;
+}
+.s-body ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--text3);
+}
+.s-body a {
+  color: var(--steel);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border2);
+  transition: all 0.15s;
+}
+.s-body a:hover {
+  color: var(--amber);
+  border-bottom-color: var(--amber-border);
+}
+
+/* INFO BLOCK */
+.info-block {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 20px 22px;
+  margin: 16px 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.85;
+}
+.info-block .label {
+  color: var(--text3);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* FOOTER */
+footer {
+  padding: 24px 32px; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 10px;
+}
+.footer-name {
+  font-family: 'Sora', sans-serif;
+  font-size: 12px; font-weight: 600; color: var(--text3);
+  display: flex; align-items: baseline; gap: 0.14em;
+}
+.footer-mono {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; color: var(--text3); letter-spacing: 0.07em;
+}
+.footer-legal {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; color: var(--text3); letter-spacing: 0.07em;
+  display: flex; align-items: center; gap: 8px;
+}
+.footer-legal a {
+  color: var(--text3); text-decoration: none;
+  border-bottom: 1px solid transparent; transition: all 0.15s;
+}
+.footer-legal a:hover {
+  color: var(--amber); border-bottom-color: var(--amber-border);
+}
+.footer-sep { color: var(--text3); opacity: 0.5; }
+
+@media (max-width: 600px) {
+  .section { padding: 36px 24px; }
+  .hero { padding: 56px 24px 40px; }
+  footer { padding: 18px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<nav>
+  <a href="/" class="nav-name">CLAUDIO MONEDA</a>
+  <a href="/" class="nav-back">← Torna alla home</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-label">Informativa</div>
+  <h1 class="hero-title">Trattamento dei dati personali</h1>
+  <p class="hero-sub">Informativa resa ai sensi degli articoli 13 e 14 del Regolamento UE 2016/679 (GDPR), per chi visita o entra in contatto attraverso il sito <strong>claudiomoneda.com</strong>.</p>
+  <div class="hero-meta">Ultimo aggiornamento · 09 giugno 2026</div>
+</section>
+
+<section class="section">
+  <div class="s-label">01 · Titolare</div>
+  <h2 class="s-title">Chi tratta i tuoi dati</h2>
+  <div class="s-body">
+    <p>Il Titolare del trattamento è il sottoscritto, in qualità di libero professionista titolare di propria posizione fiscale e iscritto all'Ordine professionale di riferimento.</p>
+    <div class="info-block">
+      <div><span class="label">Nome</span> &nbsp;Claudio Moneda</div>
+      <div><span class="label">Sede</span> &nbsp;Via XX Settembre 19, 25050 Passirano (BS)</div>
+      <div><span class="label">P.IVA</span> &nbsp;03551620176</div>
+      <div><span class="label">C.F.</span> &nbsp;MNDCLD75P20B157U</div>
+      <div><span class="label">Email</span> &nbsp;claudio@claudiomoneda.com</div>
+      <div><span class="label">PEC</span> &nbsp;claudio.moneda@ingpec.eu</div>
+    </div>
+    <p>Non è stato nominato un Responsabile della Protezione dei Dati (DPO), trattandosi di trattamento non rientrante nei casi di nomina obbligatoria di cui all'art. 37 GDPR.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="s-label">02 · Dati raccolti</div>
+  <h2 class="s-title">Quali dati vengono trattati</h2>
+  <div class="s-body">
+    <p><strong>Dati di navigazione</strong> &mdash; raccolti automaticamente quando visiti il sito:</p>
+    <ul>
+      <li>Indirizzo IP del visitatore</li>
+      <li>Tipo di browser, sistema operativo, dispositivo (user agent)</li>
+      <li>URL della pagina richiesta, data e ora della richiesta</li>
+      <li>Codice di risposta HTTP del server</li>
+    </ul>
+    <p>Questi dati non sono associati a un'identità specifica e vengono trattati esclusivamente per garantire il funzionamento tecnico e la sicurezza del sito.</p>
+    <p><strong>Dati di contatto</strong> &mdash; raccolti solo se decidi di scrivermi tramite il pulsante di contatto:</p>
+    <ul>
+      <li>Indirizzo email del mittente</li>
+      <li>Contenuto della comunicazione e relativi allegati</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="s-label">03 · Finalità e basi giuridiche</div>
+  <h2 class="s-title">Perché tratto questi dati</h2>
+  <div class="s-body">
+    <p><strong>Dati di navigazione</strong> &mdash; base giuridica: <em>legittimo interesse</em> del Titolare (art. 6.1.f GDPR) alla sicurezza informatica, alla protezione contro accessi abusivi, alla rilevazione di malfunzionamenti del sito.</p>
+    <p><strong>Dati di contatto</strong> &mdash; base giuridica: <em>esecuzione di misure precontrattuali su richiesta dell'interessato</em> (art. 6.1.b GDPR), quando il contatto è finalizzato a una possibile collaborazione professionale; altrimenti <em>legittimo interesse</em> nella gestione delle comunicazioni ricevute.</p>
+    <p>Non viene effettuata alcuna profilazione, né decisioni automatizzate ai sensi dell'art. 22 GDPR.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="s-label">04 · Destinatari</div>
+  <h2 class="s-title">A chi vengono comunicati</h2>
+  <div class="s-body">
+    <p>I dati possono essere trattati, per conto del Titolare e nei limiti delle rispettive finalità tecniche, da:</p>
+    <ul>
+      <li><strong>Cloudflare, Inc.</strong> &mdash; fornitore di servizi di hosting, CDN e protezione DDoS per il sito. Sede negli Stati Uniti. Designato Responsabile del trattamento ai sensi dell'art. 28 GDPR.</li>
+      <li><strong>Aruba S.p.A.</strong> &mdash; fornitore del servizio di posta elettronica del dominio claudiomoneda.com. Sede in Italia.</li>
+    </ul>
+    <p>Nessun dato viene comunicato a terzi al di fuori di questi fornitori tecnici. Nessun dato viene ceduto, venduto o utilizzato per finalità di marketing.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="s-label">05 · Trasferimenti extra-UE</div>
+  <h2 class="s-title">Trasferimento dei dati al di fuori dello SEE</h2>
+  <div class="s-body">
+    <p>I dati di navigazione transitano attraverso l'infrastruttura di Cloudflare, che ha sede principale negli Stati Uniti. Il trasferimento è effettuato sulla base delle <strong>Clausole Contrattuali Standard</strong> approvate dalla Commissione Europea con Decisione di Esecuzione (UE) 2021/914, in conformità all'art. 46 GDPR.</p>
+    <p>Per maggiori informazioni sulle garanzie offerte da Cloudflare puoi consultare la loro <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">informativa privacy</a> e la <a href="https://www.cloudflare.com/it-it/trust-hub/gdpr/" target="_blank" rel="noopener">pagina dedicata al GDPR</a>.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="s-label">06 · Cookie</div>
+  <h2 class="s-title">Cookie e tecnologie simili</h2>
+  <div class="s-body">
+    <p>Il sito utilizza esclusivamente <strong>cookie tecnici di Cloudflare</strong>, necessari al funzionamento e alla sicurezza:</p>
+    <ul>
+      <li><code>__cf_bm</code> &mdash; bot management, durata 30 minuti</li>
+      <li><code>cf_clearance</code> &mdash; verifica anti-bot, durata fino a 1 anno</li>
+    </ul>
+    <p>Si tratta di cookie strettamente necessari ai sensi dell'art. 122 del Codice Privacy (D.Lgs. 196/2003) e delle <a href="https://www.garanteprivacy.it/web/guest/home/docweb/-/docweb-display/docweb/9677876" target="_blank" rel="noopener">Linee Guida del Garante del 10 giugno 2021</a>, e <strong>non richiedono il tuo consenso</strong>.</p>
+    <p>Non sono utilizzati cookie di profilazione, di analytics, di marketing o di terze parti. I font del sito sono ospitati direttamente sul dominio claudiomoneda.com (non da CDN esterni) per evitare qualsiasi trasferimento di dati non necessario.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="s-label">07 · Conservazione</div>
+  <h2 class="s-title">Per quanto tempo conservo i dati</h2>
+  <div class="s-body">
+    <ul>
+      <li><strong>Log tecnici</strong> Cloudflare: conservati per i tempi minimi necessari alla diagnosi tecnica e alla sicurezza, secondo le impostazioni del fornitore (in genere fino a 30 giorni).</li>
+      <li><strong>Comunicazioni email</strong>: conservate per il tempo necessario alla gestione della richiesta e, in caso di instaurazione di rapporto professionale, per i tempi previsti dalla normativa fiscale e civilistica applicabile (in genere 10 anni dalla cessazione del rapporto).</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="s-label">08 · I tuoi diritti</div>
+  <h2 class="s-title">Diritti dell'interessato</h2>
+  <div class="s-body">
+    <p>In qualsiasi momento puoi esercitare nei miei confronti i diritti previsti dagli articoli 15-22 del GDPR:</p>
+    <ul>
+      <li>Accesso ai tuoi dati personali (art. 15)</li>
+      <li>Rettifica di dati inesatti o incompleti (art. 16)</li>
+      <li>Cancellazione dei dati (art. 17, "diritto all'oblio")</li>
+      <li>Limitazione del trattamento (art. 18)</li>
+      <li>Portabilità dei dati (art. 20)</li>
+      <li>Opposizione al trattamento (art. 21)</li>
+    </ul>
+    <p>Per esercitare uno o più di questi diritti scrivimi a <a href="mailto:claudio@claudiomoneda.com">claudio@claudiomoneda.com</a> oppure tramite PEC a <a href="mailto:claudio.moneda@ingpec.eu">claudio.moneda@ingpec.eu</a>. Riceverai riscontro entro 30 giorni.</p>
+    <p>Se ritieni che il trattamento dei tuoi dati violi il GDPR, hai diritto di proporre reclamo al <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a>.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="s-label">09 · Modifiche</div>
+  <h2 class="s-title">Aggiornamenti dell'informativa</h2>
+  <div class="s-body">
+    <p>Questa informativa può essere aggiornata per riflettere modifiche normative, organizzative o tecniche. La versione vigente è sempre quella pubblicata in questa pagina, con la data di ultimo aggiornamento indicata in alto.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">
+    <span style="font-weight:300;letter-spacing:0.08em;">CLAUDIO</span><span style="font-weight:600;letter-spacing:0.06em;">MONEDA</span>
+  </div>
+  <div class="footer-mono">M System · System Shift · Lean · Data</div>
+  <div class="footer-legal">
+    <a href="/privacy.html">Privacy</a>
+    <span class="footer-sep">·</span>
+    <a href="/note-legali.html">Note legali</a>
+  </div>
+</footer>
+
+</div>
+
+</body>
+</html>

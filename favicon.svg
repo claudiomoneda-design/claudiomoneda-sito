@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <title>Claudio Moneda</title>
+  <!-- M letterform, derived from MONEDA in Sora 700.
+       Path-based (no font dependency), amber #C17D2A on transparent. -->
+  <path fill="#C17D2A" d="M 12,14 L 28,14 L 50,56 L 72,14 L 88,14 L 88,86 L 74,86 L 74,40 L 53,79 L 47,79 L 26,40 L 26,86 L 12,86 Z"/>
+</svg>

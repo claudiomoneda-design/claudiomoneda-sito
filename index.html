@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claudio Moneda — System Designer | Lean & AI Process Engineer</title>
+<meta name="description" content="Progetto sistemi operativi aziendali. System Designer per processi: automazione, AI e Lean Thinking applicati a ESG, qualità ISO 9001, controllo di gestione e reportistica. Meno attività manuali, sistemi scalabili.">
+<link rel="canonical" href="https://claudiomoneda.com/">
+
+<!-- Favicon & iOS -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#C17D2A">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:url" content="https://claudiomoneda.com/">
+<meta property="og:site_name" content="Claudio Moneda">
+<meta property="og:title" content="Claudio Moneda — System Designer">
+<meta property="og:description" content="Progetto sistemi che fanno il lavoro al posto delle persone. Automazione, AI e Lean Thinking per processi ESG, qualità e controllo di gestione.">
+<meta property="og:image" content="https://claudiomoneda.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Claudio Moneda — System Designer · Lean & AI Process Engineer">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claudio Moneda — System Designer">
+<meta name="twitter:description" content="Progetto sistemi che fanno il lavoro al posto delle persone. Automazione, AI e Lean Thinking per ESG, qualità e controllo di gestione.">
+<meta name="twitter:image" content="https://claudiomoneda.com/og-image.png">
+<style>
+/* Self-hosted fonts — no third-party data transfer */
+@font-face { font-family:'DM Mono'; font-style:normal; font-weight:400; font-display:swap; src:url('/fonts/dm-mono-400.woff2') format('woff2'); }
+@font-face { font-family:'DM Mono'; font-style:normal; font-weight:500; font-display:swap; src:url('/fonts/dm-mono-500.woff2') format('woff2'); }
+@font-face { font-family:'Sora'; font-style:normal; font-weight:400; font-display:swap; src:url('/fonts/sora-400.woff2') format('woff2'); }
+@font-face { font-family:'Sora'; font-style:normal; font-weight:600; font-display:swap; src:url('/fonts/sora-600.woff2') format('woff2'); }
+@font-face { font-family:'Sora'; font-style:normal; font-weight:700; font-display:swap; src:url('/fonts/sora-700.woff2') format('woff2'); }
+@font-face { font-family:'Sora'; font-style:normal; font-weight:800; font-display:swap; src:url('/fonts/sora-800.woff2') format('woff2'); }
+@font-face { font-family:'Inter'; font-style:normal; font-weight:300; font-display:swap; src:url('/fonts/inter-300.woff2') format('woff2'); }
+@font-face { font-family:'Inter'; font-style:normal; font-weight:400; font-display:swap; src:url('/fonts/inter-400.woff2') format('woff2'); }
+@font-face { font-family:'Inter'; font-style:normal; font-weight:500; font-display:swap; src:url('/fonts/inter-500.woff2') format('woff2'); }
+:root {
+  --bg: #FAFAF8;
+  --bg2: #F3F1ED;
+  --bg3: #EAE8E3;
+
+  --amber:   #C17D2A;
+  --amber-dim: rgba(193,125,42,0.09);
+  --amber-border: rgba(193,125,42,0.22);
+
+  --copper:  #8B4F2E;
+  --copper-dim: rgba(139,79,46,0.1);
+
+  --steel:   #3E5B6D;
+  --steel-dim: rgba(62,91,109,0.1);
+  --steel-border: rgba(62,91,109,0.22);
+
+  --text:  #1A1814;
+  --text2: #5A5650;
+  --text3: #9A9690;
+  --border: rgba(0,0,0,0.07);
+  --border2: rgba(0,0,0,0.13);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 860px; margin: 0 auto; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,250,248,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 32px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.nav-name {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700; font-size: 14px;
+  letter-spacing: 0.03em; color: var(--text);
+}
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text3);
+}
+.lang-toggle { display: flex; gap: 5px; }
+.lang-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text3); background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px; padding: 4px 10px;
+  cursor: pointer; transition: all 0.15s;
+}
+.lang-btn.active {
+  color: var(--amber);
+  border-color: var(--amber-border);
+  background: var(--amber-dim);
+}
+.lang-btn:hover:not(.active) { border-color: var(--border2); color: var(--text2); }
+
+/* SECTION BASE */
+.section { padding: 72px 32px; border-bottom: 1px solid var(--border); }
+.s-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text3);
+  margin-bottom: 20px;
+}
+.s-title {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700; line-height: 1.15;
+  color: var(--text); margin-bottom: 18px;
+  letter-spacing: -0.02em;
+}
+.s-body {
+  font-size: 15px; color: var(--text2);
+  line-height: 1.72; max-width: 580px;
+}
+
+/* HERO */
+#hero {
+  padding: 96px 32px 80px;
+  border-bottom: 1px solid var(--border);
+  position: relative; overflow: hidden;
+}
+#hero::before {
+  content: '';
+  position: absolute; top: -80px; right: -80px;
+  width: 460px; height: 460px;
+  background: radial-gradient(circle, rgba(168,104,32,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text3);
+  margin-bottom: 32px;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-label::before {
+  content: ''; display: inline-block;
+  width: 20px; height: 1px; background: var(--amber);
+}
+.hero-h1 {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(34px, 5.5vw, 56px);
+  font-weight: 800; line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--text); margin-bottom: 28px;
+  max-width: 680px;
+}
+.hero-tagline {
+  font-family: 'Sora', sans-serif;
+  font-size: 17px; font-weight: 600;
+  color: var(--amber); letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+.hero-sub {
+  font-size: 16px; line-height: 1.72;
+  color: var(--text2); max-width: 520px;
+  margin-bottom: 52px;
+}
+.hero-sub strong { color: var(--text); font-weight: 500; }
+.hero-sig { display: flex; align-items: center; gap: 14px; }
+.sig-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--amber-dim); border: 1px solid var(--amber-border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Sora', sans-serif; font-size: 11px;
+  font-weight: 700; color: var(--amber); flex-shrink: 0;
+}
+.sig-text { font-size: 13px; color: var(--text3); line-height: 1.45; }
+.sig-text strong { color: var(--text2); font-weight: 500; display: block; }
+
+/* IMPATTO */
+#impatto { padding: 56px 32px; border-bottom: 1px solid var(--border); }
+.impatto-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px; margin-bottom: 20px;
+}
+@media(max-width:600px){ .impatto-grid { grid-template-columns: 1fr 1fr; } }
+.impatto-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 22px 18px;
+  border-top: 2px solid var(--amber);
+}
+.impatto-full { border-top-color: var(--steel); }
+.impatto-num {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(26px, 3.5vw, 36px);
+  font-weight: 800; color: var(--text);
+  letter-spacing: -0.03em; line-height: 1;
+  margin-bottom: 8px;
+}
+.impatto-full .impatto-num { color: var(--steel); }
+.impatto-label {
+  font-size: 12px; color: var(--text3);
+  line-height: 1.45; font-family: 'DM Mono', monospace;
+  letter-spacing: 0.02em;
+}
+.impatto-results {
+  display: flex; flex-wrap: wrap; gap: 6px 24px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; color: var(--amber);
+  letter-spacing: 0.06em;
+}
+
+/* POSIZIONAMENTO */
+.pos-intro {
+  font-size: 15px; color: var(--text2);
+  line-height: 1.72; margin-bottom: 36px; max-width: 600px;
+}
+.pos-intro em { font-style: normal; color: var(--text); }
+.pos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+  gap: 10px;
+}
+.pos-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px; padding: 20px;
+  transition: border-color 0.2s;
+}
+.pos-card:hover { border-color: var(--border2); }
+.pos-card .num {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; color: var(--amber);
+  margin-bottom: 10px; letter-spacing: 0.08em; opacity: 0.7;
+}
+.pos-card strong {
+  color: var(--text); font-weight: 500;
+  font-size: 14px; display: block; margin-bottom: 5px;
+}
+.pos-card span { font-size: 13px; color: var(--text3); line-height: 1.45; }
+.pos-line {
+  margin-top: 24px;
+  font-size: 14px; color: var(--text3);
+  font-style: italic; letter-spacing: 0.01em;
+}
+
+/* PROBLEMA */
+.muda-box {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 30px; margin-top: 32px;
+}
+.muda-head {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--text3); margin-bottom: 20px;
+}
+.waste-list {
+  list-style: none;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 9px 24px; margin-bottom: 26px;
+}
+@media(max-width:500px){ .waste-list { grid-template-columns: 1fr; } }
+.waste-list li {
+  font-size: 13px; color: var(--text3);
+  display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
+}
+.waste-list li::before {
+  content: ''; flex-shrink: 0;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--text3); margin-top: 7px;
+}
+.muda-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; letter-spacing: 0.04em;
+  color: var(--amber);
+  border: 1px solid var(--amber-border);
+  background: var(--amber-dim);
+  display: inline-block;
+  padding: 6px 14px; border-radius: 6px;
+}
+
+/* PRIMA / DOPO */
+.shift-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; margin-bottom: 32px;
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid var(--border);
+}
+@media(max-width:580px){ .shift-grid { grid-template-columns: 1fr; } }
+.shift-col { padding: 28px 24px; }
+.shift-before { background: #F0EEEA; }
+.shift-after  { background: #EDF3EE; border-left: 1px solid var(--border); }
+@media(max-width:580px){ .shift-after { border-left: none; border-top: 1px solid var(--border); } }
+.shift-head { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; }
+.shift-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 4px 11px; border-radius: 5px;
+}
+.before-badge { color: #A07070; background: rgba(160,100,100,0.08); border: 1px solid rgba(160,100,100,0.15); }
+.after-badge  { color: var(--amber); background: var(--amber-dim); border: 1px solid var(--amber-border); }
+.shift-sub { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text3); letter-spacing: 0.08em; }
+.shift-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.shift-list li { font-size: 13px; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; }
+.shift-before .shift-list li { color: #B8A8A8; }
+.shift-before .shift-list li::before {
+  content: ''; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%;
+  background: #C8AAAA; margin-top: 6px;
+}
+.shift-after .shift-list li { color: var(--text2); }
+.shift-after .shift-list li::before {
+  content: ''; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--amber); opacity: 0.6; margin-top: 6px;
+}
+.shift-pairs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px; margin-bottom: 32px;
+}
+@media(max-width:520px){ .shift-pairs { grid-template-columns: 1fr 1fr; } }
+.pair {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 14px;
+}
+.pair-before { font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 600; color: #B8A0A0; white-space: nowrap; }
+.pair-arrow  { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); flex-shrink: 0; }
+.pair-after  { font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 600; color: var(--amber); white-space: nowrap; }
+.shift-statement {
+  padding: 26px 28px;
+  border: 1px solid var(--border); border-left: 2px solid var(--copper);
+  border-radius: 0 9px 9px 0; background: var(--bg2);
+}
+.shift-statement p {
+  font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 600;
+  color: var(--text); line-height: 1.5; letter-spacing: -0.01em; margin-bottom: 12px;
+}
+.shift-statement span { font-size: 13px; color: var(--text3); font-style: italic; }
+
+/* METODO MONEDA */
+#metodo { padding: 72px 32px; border-bottom: 1px solid var(--border); }
+.metodo-intro {
+  font-size: 15px; color: var(--text2);
+  max-width: 540px; line-height: 1.72; margin-bottom: 40px;
+}
+.metodo-intro em { font-style: normal; color: var(--text); }
+
+/* FLOW BAR — colori per step */
+.flow-bar { display: flex; align-items: stretch; margin-bottom: 24px; overflow-x: auto; }
+.flow-step { flex: 1; min-width: 110px; cursor: pointer; }
+.flow-inner {
+  padding: 16px 14px 14px;
+  border: 1px solid var(--border); border-right: none;
+  background: var(--bg2); height: 100%;
+  transition: background 0.18s, border-color 0.18s;
+  position: relative;
+}
+.flow-inner::after {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  opacity: 0; transition: opacity 0.18s;
+}
+/* colori top-bar per step */
+.flow-step[data-color="amber"] .flow-inner::after  { background: var(--amber); }
+.flow-step[data-color="copper"] .flow-inner::after { background: var(--copper); }
+.flow-step[data-color="steel"] .flow-inner::after  { background: var(--steel); }
+.flow-step[data-color="amber2"] .flow-inner::after { background: #A0622A; }
+.flow-step[data-color="deep"] .flow-inner::after   { background: #5C7A6E; }
+
+.flow-step:first-child .flow-inner { border-radius: 9px 0 0 9px; }
+.flow-step:last-child .flow-inner  { border-radius: 0 9px 9px 0; border-right: 1px solid var(--border); }
+.flow-step.active .flow-inner,
+.flow-step:hover .flow-inner { background: var(--bg3); }
+.flow-step.active .flow-inner::after,
+.flow-step:hover .flow-inner::after { opacity: 1; }
+.flow-step[data-color="amber"].active .flow-inner  { border-color: var(--amber-border); }
+.flow-step[data-color="copper"].active .flow-inner { border-color: rgba(139,79,46,0.22); }
+.flow-step[data-color="steel"].active .flow-inner  { border-color: var(--steel-border); }
+.flow-step[data-color="amber2"].active .flow-inner { border-color: rgba(160,98,42,0.22); }
+.flow-step[data-color="deep"].active .flow-inner   { border-color: rgba(92,122,110,0.22); }
+.flow-step:last-child.active .flow-inner { border-right-color: rgba(92,122,110,0.22); }
+
+.f-code {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; color: var(--text3);
+  letter-spacing: 0.1em; margin-bottom: 6px;
+}
+.flow-step.active .f-code { opacity: 1; }
+.flow-step[data-color="amber"].active .f-code  { color: var(--amber); }
+.flow-step[data-color="copper"].active .f-code { color: var(--copper); }
+.flow-step[data-color="steel"].active .f-code  { color: var(--steel); }
+.flow-step[data-color="amber2"].active .f-code { color: #A0622A; }
+.flow-step[data-color="deep"].active .f-code   { color: #5C7A6E; }
+
+.f-name {
+  font-family: 'Sora', sans-serif;
+  font-size: 14px; font-weight: 700;
+  color: var(--text2); letter-spacing: -0.01em;
+}
+.flow-step.active .f-name { color: var(--text); }
+
+/* DETAIL CARD */
+.detail-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 28px 30px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 28px; margin-bottom: 36px;
+  border-top: 2px solid var(--amber);
+  transition: border-top-color 0.2s;
+}
+@media(max-width:560px){ .detail-card { grid-template-columns: 1fr; } }
+.d-code {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; color: var(--amber);
+  letter-spacing: 0.1em; margin-bottom: 10px;
+  transition: color 0.2s;
+}
+.d-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--text); letter-spacing: -0.015em; margin-bottom: 10px;
+}
+.d-q {
+  font-size: 13px; color: var(--text3);
+  font-style: italic; line-height: 1.6; margin-bottom: 18px;
+}
+.d-output {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; color: var(--text2);
+  letter-spacing: 0.04em;
+  border: 1px solid var(--border2);
+  display: inline-block; padding: 5px 12px; border-radius: 5px;
+}
+.d-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.d-list li {
+  font-size: 13px; color: var(--text3);
+  display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
+}
+.d-list li::before {
+  content: ''; flex-shrink: 0;
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--text3); margin-top: 7px;
+}
+
+/* PILLARS */
+.pillars {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 10px; margin-bottom: 32px;
+}
+@media(max-width:520px){ .pillars { grid-template-columns: 1fr; } }
+.pillar {
+  border: 1px solid var(--border);
+  border-radius: 9px; padding: 18px;
+}
+.pillar:nth-child(1) { border-top: 2px solid var(--amber); }
+.pillar:nth-child(2) { border-top: 2px solid var(--steel); }
+.pillar:nth-child(3) { border-top: 2px solid var(--copper); }
+.p-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; color: var(--text3);
+  letter-spacing: 0.1em; margin-bottom: 9px;
+}
+.p-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 14px; font-weight: 700;
+  color: var(--text); margin-bottom: 6px;
+}
+.p-sub { font-size: 12px; color: var(--text3); line-height: 1.55; }
+
+/* KEYLINE */
+.keyline {
+  padding: 22px 26px;
+  border-left: 2px solid var(--amber);
+  background: var(--amber-dim);
+  border-radius: 0 9px 9px 0; margin-bottom: 32px;
+}
+.keyline p {
+  font-family: 'Sora', sans-serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--text); line-height: 1.4; letter-spacing: -0.01em;
+}
+.keyline span {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; color: var(--text3);
+  display: block; margin-top: 7px; font-style: italic;
+}
+
+/* OUTPUTS */
+.out-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--text3); margin-bottom: 14px;
+}
+.out-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+}
+.out-item {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 7px; padding: 13px 14px;
+  font-size: 12px; color: var(--text3);
+  display: flex; align-items: flex-start; gap: 9px; line-height: 1.45;
+}
+.out-item::before {
+  content: '✓'; color: var(--amber);
+  font-size: 11px; flex-shrink: 0;
+  font-family: 'DM Mono', monospace; margin-top: 1px;
+}
+
+/* STEP-RESULT */
+.step-result {
+  margin-top: 26px; padding: 18px 22px;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 9px; font-size: 13px; color: var(--text2);
+  font-family: 'DM Mono', monospace;
+  display: flex; align-items: center; gap: 10px;
+  letter-spacing: 0.02em;
+}
+.step-result::before { content: '→'; color: var(--amber); font-size: 14px; }
+
+/* APPLICAZIONI */
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 10px; margin-top: 32px;
+}
+.app-item {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 22px 20px;
+  display: flex; flex-direction: column; gap: 10px;
+  transition: border-color 0.2s;
+}
+.app-item:hover { border-color: var(--border2); }
+.app-tag-line {
+  display: flex; align-items: center; gap: 8px;
+}
+.app-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--text3); flex-shrink: 0; margin-top: 1px;
+}
+.app-item.a1 .app-dot { background: var(--amber); }
+.app-item.a2 .app-dot { background: var(--copper); }
+.app-item.a3 .app-dot { background: var(--steel); }
+.app-area {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text3);
+}
+.app-item.a1 .app-area { color: var(--amber); opacity: 0.8; }
+.app-item.a2 .app-area { color: var(--copper); opacity: 0.8; }
+.app-item.a3 .app-area { color: var(--steel); opacity: 0.8; }
+.app-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 14px; font-weight: 600;
+  color: var(--text); letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+.app-problem {
+  font-size: 12px; color: var(--text3); line-height: 1.6;
+  border-top: 1px solid var(--border); padding-top: 10px;
+}
+.apps-foot {
+  margin-top: 18px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; color: var(--text3); letter-spacing: 0.06em;
+}
+
+/* DIFFERENZA */
+.diff-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 12px; margin-top: 36px; margin-bottom: 28px;
+}
+@media(max-width:560px){ .diff-grid { grid-template-columns: 1fr; } }
+.diff-card {
+  border: 1px solid var(--border); border-radius: 10px;
+  padding: 26px 22px; display: flex; flex-direction: column; gap: 10px;
+}
+.diff-card.hi-copper { border-color: rgba(139,79,46,0.28); background: var(--copper-dim); }
+.diff-card.hi-amber  { border-color: var(--amber-border); background: var(--amber-dim); }
+.diff-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; color: var(--text3);
+  letter-spacing: 0.12em; text-transform: uppercase;
+}
+.diff-text {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 800; color: var(--text);
+  line-height: 1.15; letter-spacing: -0.02em;
+}
+.diff-card.hi-copper .diff-text { color: var(--copper); }
+.diff-card.hi-amber  .diff-text { color: var(--amber); }
+.diff-desc {
+  font-size: 13px; color: var(--text3);
+  line-height: 1.6; margin-top: 4px;
+}
+.diff-card.hi-copper .diff-desc { color: rgba(139,79,46,0.55); }
+.diff-card.hi-amber  .diff-desc { color: rgba(193,125,42,0.55); }
+.diff-statement {
+  padding: 24px 28px;
+  border-left: 2px solid var(--amber);
+  border-radius: 0 9px 9px 0;
+}
+.diff-statement p {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 700; color: var(--text2);
+  line-height: 1.4; letter-spacing: -0.01em;
+}
+
+/* CTA */
+#cta {
+  padding: 80px 32px; text-align: center;
+  position: relative; overflow: hidden;
+}
+#cta::before {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px; height: 260px;
+  background: radial-gradient(ellipse, rgba(168,104,32,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+#cta h2 {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(22px, 3.5vw, 36px);
+  font-weight: 800; letter-spacing: -0.02em;
+  color: var(--text); line-height: 1.15; margin-bottom: 16px;
+}
+#cta p {
+  font-size: 14px; color: var(--text2);
+  margin-bottom: 40px; max-width: 440px;
+  margin-left: auto; margin-right: auto; line-height: 1.7;
+}
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--amber); color: #0f0f0f;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700; font-size: 14px;
+  padding: 13px 30px; border-radius: 8px;
+  border: none; cursor: pointer;
+  letter-spacing: 0.01em; text-decoration: none;
+  transition: opacity 0.2s;
+}
+.cta-btn:hover { opacity: 0.82; }
+
+/* FOOTER */
+footer {
+  padding: 24px 32px; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 10px;
+}
+.footer-name {
+  font-family: 'Sora', sans-serif;
+  font-size: 12px; font-weight: 600; color: var(--text3);
+}
+.footer-mono {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; color: var(--text3); letter-spacing: 0.07em;
+}
+.footer-legal {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; color: var(--text3); letter-spacing: 0.07em;
+  display: flex; align-items: center; gap: 8px;
+}
+.footer-legal a {
+  color: var(--text3); text-decoration: none;
+  border-bottom: 1px solid transparent; transition: all 0.15s;
+}
+.footer-legal a:hover {
+  color: var(--amber); border-bottom-color: var(--amber-border);
+}
+.footer-sep { color: var(--text3); opacity: 0.5; }
+
+/* DOVE APPLICO — domini concreti */
+.domains-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 9px; margin-top: 28px;
+}
+.domain-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 9px; padding: 16px 18px;
+  display: flex; align-items: center; gap: 12px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.domain-card:hover { border-color: var(--border2); background: var(--bg3); }
+.domain-card .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--amber); flex-shrink: 0;
+}
+.domain-card:nth-child(3n+2) .dot { background: var(--steel); }
+.domain-card:nth-child(3n) .dot { background: var(--copper); }
+.domain-card span {
+  font-family: 'Sora', sans-serif; font-size: 14px;
+  font-weight: 600; color: var(--text); letter-spacing: -0.01em;
+}
+
+/* CHI SONO — credibilità */
+.bio-card {
+  display: flex; gap: 22px; align-items: flex-start;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 30px; margin-top: 26px;
+}
+@media(max-width:560px){ .bio-card { flex-direction: column; gap: 18px; } }
+.bio-avatar {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--amber-dim); border: 1px solid var(--amber-border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Sora', sans-serif; font-size: 16px;
+  font-weight: 700; color: var(--amber); flex-shrink: 0;
+}
+.bio-body { flex: 1; }
+.bio-text {
+  font-size: 15px; color: var(--text2); line-height: 1.7;
+  max-width: 560px; margin-bottom: 18px;
+}
+.bio-text strong { color: var(--text); font-weight: 500; }
+.bio-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.bio-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--text2);
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 6px; padding: 6px 11px;
+}
+.bio-tag.hi {
+  color: var(--amber); border-color: var(--amber-border);
+  background: var(--amber-dim);
+}
+
+/* IMPATTO — nota indicativa */
+.impatto-note {
+  margin-top: 18px; font-size: 12px; color: var(--text3);
+  font-style: italic; line-height: 1.6; max-width: 560px;
+}
+
+/* ESEMPI REALI — casi concreti */
+.cases-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-top: 36px;
+}
+@media(max-width:620px){ .cases-grid { grid-template-columns: 1fr; } }
+.case-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 13px; padding: 30px 32px;
+  border-top: 2px solid var(--amber);
+  display: flex; flex-direction: column; gap: 18px;
+}
+.case-card:nth-child(2) { border-top-color: var(--steel); }
+.case-card:nth-child(3) { border-top-color: var(--copper); }
+.case-card:nth-child(4) { border-top-color: #5C7A6E; }
+.case-area {
+  font-family: 'Sora', sans-serif; font-size: 19px;
+  font-weight: 700; color: var(--text); letter-spacing: -0.015em;
+}
+.case-shift { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.case-before {
+  font-size: 13px; color: var(--text3); line-height: 1.4;
+}
+.case-arrow { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--amber); flex-shrink: 0; }
+.case-after {
+  font-size: 13px; color: var(--text); font-weight: 500; line-height: 1.4;
+}
+.cases-foot {
+  margin-top: 22px; font-size: 13px; color: var(--text3);
+  font-style: italic; letter-spacing: 0.01em;
+}
+/* System Shift in Action — metriche impilate */
+.case-before-stack { display: flex; flex-direction: column; gap: 9px; }
+.case-metric {
+  font-family: 'DM Mono', monospace;
+  font-size: 13.5px; color: #B8A0A0; letter-spacing: 0.02em;
+  display: flex; align-items: center; gap: 10px; line-height: 1.4;
+}
+.case-metric::before {
+  content: ''; flex-shrink: 0;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #C8AAAA;
+}
+.case-after-line {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 8px; padding-top: 18px;
+  border-top: 1px solid var(--border);
+  font-family: 'Sora', sans-serif; font-size: 16px;
+  font-weight: 600; color: var(--text); letter-spacing: -0.01em; line-height: 1.4;
+}
+.case-after-line::before {
+  content: '→'; color: var(--amber); font-family: 'DM Mono', monospace;
+  font-size: 16px; flex-shrink: 0;
+}
+
+/* COSA REALIZZO — perimetro servizi */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  gap: 10px; margin-top: 28px;
+}
+.service-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 20px 18px;
+  display: flex; flex-direction: column; gap: 8px;
+  transition: border-color 0.2s;
+}
+.service-card:hover { border-color: var(--border2); }
+.service-num {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  letter-spacing: 0.1em; color: var(--amber); opacity: 0.85;
+}
+.service-title {
+  font-family: 'Sora', sans-serif; font-size: 14px;
+  font-weight: 600; color: var(--text); letter-spacing: -0.01em; line-height: 1.25;
+}
+.service-desc { font-size: 12px; color: var(--text3); line-height: 1.5; }
+
+/* MANIFESTO — frase firma */
+#manifesto {
+  padding: 84px 32px; border-bottom: 1px solid var(--border);
+  text-align: center; position: relative; overflow: hidden;
+}
+#manifesto::before {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 560px; height: 280px;
+  background: radial-gradient(ellipse, rgba(62,91,109,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.manifesto-quote {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(24px, 3.6vw, 38px);
+  font-weight: 800; letter-spacing: -0.025em;
+  line-height: 1.18; color: var(--text);
+  max-width: 760px; margin: 0 auto; position: relative;
+}
+.manifesto-quote .accent { color: var(--amber); }
+.manifesto-sig {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--text3);
+  margin-top: 26px;
+}
+
+/* DOVE APPLICO IL METODO — marchi */
+.brands-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:36px; }
+@media(max-width:620px){ .brands-grid { grid-template-columns:1fr; } }
+.brand-card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 13px;
+  padding: 28px 30px; display:flex; flex-direction:column; gap:12px;
+  border-top: 2px solid #00694F; text-decoration:none; color:inherit; transition:border-color .2s;
+}
+.brand-card:nth-child(2){ border-top-color:#1F3A5F; }
+.brand-card:hover { border-color: var(--border2); }
+.brand-name { font-family:'Sora',sans-serif; font-size:19px; font-weight:700; color:var(--text); letter-spacing:-0.015em; }
+.brand-desc { font-size:14px; color:var(--text2); line-height:1.6; }
+.brand-link { font-family:'DM Mono',monospace; font-size:12px; color:var(--amber); letter-spacing:0.04em; margin-top:auto; }
+.cta-alt { margin-top:22px !important; margin-bottom:0 !important; font-size:13px !important; color:var(--text3) !important; }
+.cta-alt a { color:var(--text2); text-decoration:none; border-bottom:1px solid var(--border2); }
+.cta-alt a:hover { color:var(--amber); border-bottom-color:var(--amber-border); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name" style="display:flex;align-items:baseline;gap:0.15em;font-family:'Sora',sans-serif;font-size:14px;">
+    <span style="font-weight:300;letter-spacing:0.08em;">CLAUDIO</span><span style="font-weight:600;letter-spacing:0.06em;">MONEDA</span>
+  </div>
+  <div class="nav-right">
+    <div class="nav-tag" data-it="Lean &amp; AI Process Engineer" data-en="Lean &amp; AI Process Engineer">Lean &amp; AI Process Engineer</div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('it')" id="btn-it">IT</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-label" data-it="System Designer · Lean &amp; AI Process Engineer" data-en="System Designer · Lean &amp; AI Process Engineer">System Designer · Lean &amp; AI Process Engineer</div>
+  <h1 class="hero-h1"
+    data-it="Non lavoro sui processi.<br>Costruisco sistemi."
+    data-en="I don't work on processes.<br>I build systems.">Non lavoro sui processi.<br>Costruisco sistemi.</h1>
+  <p class="hero-tagline"
+    data-it="Progetto sistemi operativi aziendali."
+    data-en="I build business operating systems.">Progetto sistemi operativi aziendali.</p>
+  <p class="hero-sub"
+    data-it="Trasformo processi complessi in sistemi che lavorano da soli."
+    data-en="I transform complex processes into systems that run on their own.">Trasformo processi complessi in sistemi che lavorano da soli.</p>
+  <div class="hero-sig">
+    <div class="sig-avatar">CM</div>
+    <div class="sig-text">
+      <strong>Claudio Moneda</strong>
+      <span data-it="Ingegnere gestionale · 25 anni in processi, sostenibilità e sistemi"
+            data-en="Industrial engineer · 25 years in processes, sustainability &amp; systems">Ingegnere gestionale · 25 anni in processi, sostenibilità e sistemi</span>
+    </div>
+  </div>
+</section>
+
+<!-- DOVE APPLICO -->
+<section class="section" style="padding-top:48px;padding-bottom:48px;">
+  <div class="s-label" data-it="— dove applico l'M System" data-en="— where I apply the M System">— dove applico l'M System</div>
+  <h2 class="s-title" data-it="Ambiti in cui costruisco sistemi" data-en="Where I build systems">Ambiti in cui costruisco sistemi</h2>
+  <p class="s-body" data-it="Settori e processi in cui trasformo attività manuali in sistemi automatizzati e affidabili." data-en="Areas and processes where I turn manual activities into automated, reliable systems.">Settori e processi in cui trasformo attività manuali in sistemi automatizzati e affidabili.</p>
+  <div class="domains-grid">
+    <div class="domain-card"><span class="dot"></span><span data-it="Processi amministrativi" data-en="Administrative processes">Processi amministrativi</span></div>
+    <div class="domain-card"><span class="dot"></span><span data-it="Controllo di gestione" data-en="Management control">Controllo di gestione</span></div>
+    <div class="domain-card"><span class="dot"></span><span data-it="Reportistica aziendale" data-en="Business reporting">Reportistica aziendale</span></div>
+    <div class="domain-card"><span class="dot"></span><span data-it="Workflow documentali" data-en="Document workflows">Workflow documentali</span></div>
+    <div class="domain-card"><span class="dot"></span><span data-it="Automazione con AI" data-en="AI automation">Automazione con AI</span></div>
+    <div class="domain-card"><span class="dot"></span><span data-it="Gestione dati aziendali" data-en="Business data management">Gestione dati aziendali</span></div>
+    <div class="domain-card"><span class="dot"></span><span data-it="ESG e Carbon Footprint" data-en="ESG &amp; Carbon Footprint">ESG e Carbon Footprint</span></div>
+    <div class="domain-card"><span class="dot"></span><span data-it="Qualità ISO 9001" data-en="ISO 9001 Quality">Qualità ISO 9001</span></div>
+  </div>
+</section>
+
+<!-- PERCHE -->
+<section class="section" style="padding-top:56px;padding-bottom:56px;">
+  <div class="s-label" data-it="— chi sono" data-en="— who I am">— chi sono</div>
+  <h2 class="s-title" data-it="Perché ho sviluppato questo approccio" data-en="Why I developed this approach">Perché ho sviluppato questo approccio</h2>
+  <p style="max-width:580px;font-family:'Sora',sans-serif;font-size:clamp(16px,2.2vw,20px);font-weight:400;line-height:1.6;color:var(--text2);letter-spacing:-0.01em;margin-bottom:30px;"
+    data-it="Questo approccio nasce da anni di lavoro su processi complessi. All&#39;inizio li ottimizzavo. Poi ho capito che il problema non era migliorarli, ma superarli.<br><br>Trasformandoli in sistemi."
+    data-en="This approach was born from years of work on complex processes. At first I optimised them. Then I understood that the problem was not improving them, but going beyond them.<br><br>By turning them into systems.">Questo approccio nasce da anni di lavoro su processi complessi. All'inizio li ottimizzavo. Poi ho capito che il problema non era migliorarli, ma superarli.<br><br>Trasformandoli in sistemi.</p>
+  <div class="bio-card">
+    <div class="bio-avatar">CM</div>
+    <div class="bio-body">
+      <p class="bio-text"
+        data-it="<strong>Ingegnere gestionale</strong> con 25 anni di esperienza nei sistemi aziendali. Lead Auditor ISO, imprenditore industriale e fondatore di una società specializzata in Carbon Footprint e sistemi di sostenibilità."
+        data-en="<strong>Industrial engineer</strong> with 25 years of experience in business systems. ISO Lead Auditor, industrial entrepreneur and founder of a company specialised in Carbon Footprint and sustainability systems."><strong>Ingegnere gestionale</strong> con 25 anni di esperienza nei sistemi aziendali. Lead Auditor ISO, imprenditore industriale e fondatore di una società specializzata in Carbon Footprint e sistemi di sostenibilità.</p>
+      <p class="bio-text"
+        data-it="<strong>Prima di progettare sistemi per altre organizzazioni, ho dovuto costruirli e gestirli in prima persona.</strong> Ho operato nell'industria manifatturiera, nella governance pubblica e nel terzo settore, affrontando problemi diversi ma sempre riconducibili alla stessa domanda: come rendere un'organizzazione meno dipendente dalle persone e più dipendente dai sistemi."
+        data-en="<strong>Before designing systems for other organisations, I had to build and run them firsthand.</strong> I have worked in manufacturing, public governance and the non-profit sector, facing different problems that always came back to the same question: how to make an organisation less dependent on people and more dependent on systems."><strong>Prima di progettare sistemi per altre organizzazioni, ho dovuto costruirli e gestirli in prima persona.</strong> Ho operato nell'industria manifatturiera, nella governance pubblica e nel terzo settore, affrontando problemi diversi ma sempre riconducibili alla stessa domanda: come rendere un'organizzazione meno dipendente dalle persone e più dipendente dai sistemi.</p>
+      <div class="bio-tags">
+        <span class="bio-tag" data-it="Ingegnere gestionale" data-en="Industrial engineer">Ingegnere gestionale</span>
+        <span class="bio-tag hi" data-it="Imprenditore industriale" data-en="Industrial entrepreneur">Imprenditore industriale</span>
+        <span class="bio-tag" data-it="Lead Auditor ISO" data-en="ISO Lead Auditor">Lead Auditor ISO</span>
+        <span class="bio-tag" data-it="Assessore al bilancio" data-en="Budget councillor">Assessore al bilancio</span>
+        <span class="bio-tag" data-it="Reti commerciali UE &amp; extra UE" data-en="EU &amp; non-EU sales networks">Reti commerciali UE &amp; extra UE</span>
+        <span class="bio-tag" data-it="Sostenibilità" data-en="Sustainability">Sostenibilità</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA + IMPATTO -->
+<section class="section" id="impatto">
+  <div class="s-label" data-it="— il problema" data-en="— the problem">— il problema</div>
+  <h2 class="s-title"
+    data-it="La maggior parte dei processi è piena di sprechi invisibili"
+    data-en="Most processes are full of invisible waste">La maggior parte dei processi è piena di sprechi invisibili</h2>
+  <p class="s-body"
+    data-it="Tempo speso in attività che non producono valore. Non è cattiva volontà. È sistema mal progettato."
+    data-en="Time spent on activities that produce no value. Not bad intentions. Just a poorly designed system.">Tempo speso in attività che non producono valore. Non è cattiva volontà. È sistema mal progettato.</p>
+  <div class="muda-box">
+    <div class="muda-head" data-it="esempi comuni di muda digitale" data-en="common examples of digital muda">esempi comuni di muda digitale</div>
+    <ul class="waste-list">
+      <li data-it="Ricostruire dati ogni ciclo" data-en="Rebuilding data every cycle">Ricostruire dati ogni ciclo</li>
+      <li data-it="Aggiornare file manuali" data-en="Updating manual files">Aggiornare file manuali</li>
+      <li data-it="Rifare report ogni anno" data-en="Redoing reports every year">Rifare report ogni anno</li>
+      <li data-it="Gestire versioni incoerenti" data-en="Managing inconsistent versions">Gestire versioni incoerenti</li>
+    </ul>
+    <div class="muda-badge" data-it="muda digitale → eliminabile con sistema" data-en="digital muda → eliminable with a system">muda digitale → eliminabile con sistema</div>
+    <p style="margin-top:20px;font-size:13px;color:var(--text3);font-style:italic;letter-spacing:0.01em;"
+       data-it="Il problema non è il lavoro. È il sistema che lo genera."
+       data-en="The problem is not the work. It is the system that generates it.">Il problema non è il lavoro. È il sistema che lo genera.</p>
+  </div>
+
+  <div class="s-label" style="margin-top:44px;" data-it="— cosa cambia" data-en="— what changes">— cosa cambia</div>
+  <div class="impatto-grid">
+    <div class="impatto-card">
+      <div class="impatto-num">30–70%</div>
+      <div class="impatto-label" data-it="riduzione attività manuali" data-en="reduction in manual activities">riduzione attività manuali</div>
+    </div>
+    <div class="impatto-card">
+      <div class="impatto-num">20–50%</div>
+      <div class="impatto-label" data-it="riduzione tempi operativi" data-en="reduction in operational time">riduzione tempi operativi</div>
+    </div>
+    <div class="impatto-card">
+      <div class="impatto-num">~80%</div>
+      <div class="impatto-label" data-it="riduzione errori" data-en="error reduction">riduzione errori</div>
+    </div>
+    <div class="impatto-card impatto-full">
+      <div class="impatto-num">100%</div>
+      <div class="impatto-label" data-it="standardizzazione processi" data-en="process standardisation">standardizzazione processi</div>
+    </div>
+  </div>
+  <div class="impatto-results">
+    <span data-it="→ meno costo operativo" data-en="→ lower operational cost">→ meno costo operativo</span>
+    <span data-it="→ più affidabilità" data-en="→ more reliability">→ più affidabilità</span>
+    <span data-it="→ più scalabilità" data-en="→ more scalability">→ più scalabilità</span>
+  </div>
+  <p class="impatto-note"
+     data-it="Riduzioni tipiche osservate nei progetti di automazione e redesign dei processi. Valori indicativi, variabili in funzione del processo analizzato."
+     data-en="Typical reductions observed in process automation and redesign projects. Indicative values, varying depending on the process analysed.">Riduzioni tipiche osservate nei progetti di automazione e redesign dei processi. Valori indicativi, variabili in funzione del processo analizzato.</p>
+</section>
+
+<!-- PRIMA / DOPO -->
+<section class="section" id="shift">
+  <div class="s-label" data-it="— system shift" data-en="— system shift">— system shift</div>
+  <h2 class="s-title" data-it="Prima / Dopo" data-en="Before / After">Prima / Dopo</h2>
+  <p class="s-body" style="margin-bottom:36px;"
+    data-it="Come cambia un processo quando diventa sistema."
+    data-en="How a process changes when it becomes a system.">Come cambia un processo quando diventa sistema.</p>
+
+  <div class="shift-grid">
+    <div class="shift-col shift-before">
+      <div class="shift-head">
+        <span class="shift-badge before-badge" data-it="Prima" data-en="Before">Prima</span>
+        <span class="shift-sub" data-it="processo tradizionale" data-en="traditional process">processo tradizionale</span>
+      </div>
+      <ul class="shift-list">
+        <li data-it="Raccolta dati manuale da più fonti" data-en="Manual data collection from multiple sources">Raccolta dati manuale da più fonti</li>
+        <li data-it="Excel duplicati e non allineati" data-en="Duplicated, misaligned spreadsheets">Excel duplicati e non allineati</li>
+        <li data-it="Ricostruzione dei file ogni anno" data-en="Files rebuilt from scratch every year">Ricostruzione dei file ogni anno</li>
+        <li data-it="Report creati manualmente" data-en="Reports created manually">Report creati manualmente</li>
+        <li data-it="Verifiche e controlli ripetitivi" data-en="Repetitive checks and controls">Verifiche e controlli ripetitivi</li>
+        <li data-it="Scambio continuo di email" data-en="Continuous email back-and-forth">Scambio continuo di email</li>
+        <li data-it="Dipendenza da persone chiave" data-en="Dependency on key people">Dipendenza da persone chiave</li>
+        <li data-it="Versioni multiple dello stesso documento" data-en="Multiple versions of the same document">Versioni multiple dello stesso documento</li>
+        <li data-it="Tempi lunghi e variabili" data-en="Long and unpredictable timelines">Tempi lunghi e variabili</li>
+        <li data-it="Alto rischio di errore" data-en="High error risk">Alto rischio di errore</li>
+      </ul>
+    </div>
+
+    <div class="shift-col shift-after">
+      <div class="shift-head">
+        <span class="shift-badge after-badge" data-it="Dopo" data-en="After">Dopo</span>
+        <span class="shift-sub" data-it="sistema strutturato" data-en="structured system">sistema strutturato</span>
+      </div>
+      <ul class="shift-list">
+        <li data-it="Dati centralizzati e strutturati" data-en="Centralised and structured data">Dati centralizzati e strutturati</li>
+        <li data-it="Fonte unica e coerente" data-en="Single, coherent source">Fonte unica e coerente</li>
+        <li data-it="Processo stabile e replicabile" data-en="Stable and replicable process">Processo stabile e replicabile</li>
+        <li data-it="Output generati automaticamente" data-en="Automatically generated outputs">Output generati automaticamente</li>
+        <li data-it="Controlli integrati nel sistema" data-en="Controls built into the system">Controlli integrati nel sistema</li>
+        <li data-it="Flusso continuo senza interruzioni" data-en="Continuous flow without interruptions">Flusso continuo senza interruzioni</li>
+        <li data-it="Indipendenza dalle persone" data-en="Independence from people">Indipendenza dalle persone</li>
+        <li data-it="Un'unica versione affidabile" data-en="One single reliable version">Un'unica versione affidabile</li>
+        <li data-it="Tempi ridotti e prevedibili" data-en="Reduced and predictable timelines">Tempi ridotti e prevedibili</li>
+        <li data-it="Riduzione drastica degli errori" data-en="Drastic error reduction">Riduzione drastica degli errori</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="shift-pairs">
+    <div class="pair"><span class="pair-before" data-it="Manuale" data-en="Manual">Manuale</span><span class="pair-arrow">→</span><span class="pair-after" data-it="Automatizzato" data-en="Automated">Automatizzato</span></div>
+    <div class="pair"><span class="pair-before" data-it="Disperso" data-en="Dispersed">Disperso</span><span class="pair-arrow">→</span><span class="pair-after" data-it="Strutturato" data-en="Structured">Strutturato</span></div>
+    <div class="pair"><span class="pair-before" data-it="Variabile" data-en="Variable">Variabile</span><span class="pair-arrow">→</span><span class="pair-after" data-it="Replicabile" data-en="Replicable">Replicabile</span></div>
+    <div class="pair"><span class="pair-before" data-it="Dipendente" data-en="Dependent">Dipendente</span><span class="pair-arrow">→</span><span class="pair-after" data-it="Indipendente" data-en="Independent">Indipendente</span></div>
+    <div class="pair"><span class="pair-before" data-it="Lento" data-en="Slow">Lento</span><span class="pair-arrow">→</span><span class="pair-after" data-it="Veloce" data-en="Fast">Veloce</span></div>
+    <div class="pair"><span class="pair-before" data-it="Rischioso" data-en="Risky">Rischioso</span><span class="pair-arrow">→</span><span class="pair-after" data-it="Controllato" data-en="Controlled">Controllato</span></div>
+  </div>
+
+  <div class="shift-statement">
+    <p data-it="In molti processi aziendali una parte significativa delle attività operative non genera valore diretto.<br>Il sistema le elimina."
+       data-en="In many business processes a significant share of operational activities generates no direct value.<br>The system eliminates them.">In molti processi aziendali una parte significativa delle attività operative non genera valore diretto.<br>Il sistema le elimina.</p>
+    <span data-it="Non è un miglioramento incrementale. È un cambio di paradigma." data-en="Not an incremental improvement. A paradigm shift.">Non è un miglioramento incrementale. È un cambio di paradigma.</span>
+  </div>
+</section>
+
+<!-- METODO MONEDA -->
+<section id="metodo">
+  <div class="s-label" data-it="— metodo" data-en="— method">— metodo</div>
+  <h2 class="s-title">M System</h2>
+  <p class="msystem-tag" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:20px;">System Shift</p>
+  <p class="metodo-intro"
+    data-it="Un metodo strutturato per trasformare processi complessi in sistemi automatizzati. L'M System abilita il <em>System Shift</em>: il passaggio da operatività manuale a sistema che si autogestisce."
+    data-en="A structured method to turn complex processes into automated systems. M System enables the <em>System Shift</em>: the transition from manual operations to a self-running system.">Un metodo strutturato per trasformare processi complessi in sistemi automatizzati. L'M System abilita il <em>System Shift</em>: il passaggio da operatività manuale a sistema che si autogestisce.</p>
+
+  <div class="flow-bar">
+    <div class="flow-step active" data-color="amber"  onclick="selectStep(0)"><div class="flow-inner"><div class="f-code">M1</div><div class="f-name">VALUE</div></div></div>
+    <div class="flow-step"        data-color="copper" onclick="selectStep(1)"><div class="flow-inner"><div class="f-code">M2</div><div class="f-name">WASTE</div></div></div>
+    <div class="flow-step"        data-color="steel"  onclick="selectStep(2)"><div class="flow-inner"><div class="f-code">M3</div><div class="f-name">DATA</div></div></div>
+    <div class="flow-step"        data-color="amber2" onclick="selectStep(3)"><div class="flow-inner"><div class="f-code">M4</div><div class="f-name">MODEL</div></div></div>
+    <div class="flow-step"        data-color="deep"   onclick="selectStep(4)"><div class="flow-inner"><div class="f-code">M5</div><div class="f-name">SYSTEM</div></div></div>
+  </div>
+
+  <div class="detail-card" id="detailCard">
+    <div>
+      <div class="d-code" id="d-code">M1 — VALUE</div>
+      <div class="d-title" id="d-title">Identifico il valore reale</div>
+      <div class="d-q" id="d-q">Cosa produce output utile per il business?</div>
+      <div class="d-output" id="d-output">→ processo distillato</div>
+    </div>
+    <div>
+      <ul class="d-list" id="d-list">
+        <li>Distinguo valore da non-valore</li>
+        <li>Mappa delle attività esistenti</li>
+        <li>Lean puro applicato al flusso</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="keyline">
+    <p data-it="Non ottimizzo attività esistenti.<br>Le trasformo in sistemi."
+       data-en="I don't optimize existing activities.<br>I transform them into systems.">Non ottimizzo attività esistenti.<br>Le trasformo in sistemi.</p>
+    <span>M System · System Shift approach</span>
+  </div>
+
+  <div style="margin-top:32px;padding:28px 30px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;border-left:2px solid var(--copper);">
+    <div class="out-label" style="margin-bottom:14px;" data-it="— architettura operativa" data-en="— operational architecture">— architettura operativa</div>
+    <p style="font-family:'Sora',sans-serif;font-size:15px;font-weight:600;color:var(--text);line-height:1.5;margin-bottom:16px;letter-spacing:-0.01em;"
+       data-it="Ogni sistema è progettato come un'architettura operativa:"
+       data-en="Every system is designed as an operational architecture:">Ogni sistema è progettato come un'architettura operativa:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-bottom:24px;">
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:12px 14px;font-family:'DM Mono',monospace;font-size:11px;color:var(--text2);letter-spacing:0.04em;" data-it="dati strutturati" data-en="structured data">dati strutturati</div>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:12px 14px;font-family:'DM Mono',monospace;font-size:11px;color:var(--text2);letter-spacing:0.04em;" data-it="logiche decisionali" data-en="decision logic">logiche decisionali</div>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:12px 14px;font-family:'DM Mono',monospace;font-size:11px;color:var(--text2);letter-spacing:0.04em;" data-it="flussi operativi" data-en="operational flows">flussi operativi</div>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:12px 14px;font-family:'DM Mono',monospace;font-size:11px;color:var(--text2);letter-spacing:0.04em;" data-it="output automatici" data-en="automatic outputs">output automatici</div>
+    </div>
+    <p style="font-family:'Sora',sans-serif;font-size:15px;font-weight:600;color:var(--text);letter-spacing:-0.01em;"
+       data-it="Il sistema esegue. Le persone decidono."
+       data-en="The system executes. People decide.">Il sistema esegue. Le persone decidono.</p>
+  </div>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="p-num">pillar 01</div>
+      <div class="p-title" data-it="Eliminazione del non-valore" data-en="Elimination of non-value">Eliminazione del non-valore</div>
+      <div class="p-sub" data-it="Attività inutili, duplicazioni, ridondanze: tutto ciò che non produce output misurabile viene rimosso." data-en="Useless activities, duplications, redundancies: everything that produces no measurable output is removed.">Attività inutili, duplicazioni, ridondanze: tutto ciò che non produce output misurabile viene rimosso.</div>
+    </div>
+    <div class="pillar">
+      <div class="p-num">pillar 02</div>
+      <div class="p-title" data-it="Strutturazione dei dati" data-en="Data structuring">Strutturazione dei dati</div>
+      <div class="p-sub" data-it="Fonte unica di verità, logiche coerenti, modelli replicabili. La base stabile su cui costruire qualsiasi sistema." data-en="Single source of truth, coherent logic, replicable models. The stable foundation for any system.">Fonte unica di verità, logiche coerenti, modelli replicabili. La base stabile su cui costruire qualsiasi sistema.</div>
+    </div>
+    <div class="pillar">
+      <div class="p-num">pillar 03</div>
+      <div class="p-title" data-it="Automazione degli output" data-en="Output automation">Automazione degli output</div>
+      <div class="p-sub" data-it="Il sistema esegue. Le persone decidono. Non il contrario." data-en="The system executes. People decide. Not the other way.">Il sistema esegue. Le persone decidono. Non il contrario.</div>
+    </div>
+  </div>
+
+  <div class="out-label" data-it="— output del metodo" data-en="— method outputs">— output del metodo</div>
+  <div class="out-grid">
+    <div class="out-item" data-it="Processo stabile e documentato" data-en="Stable and documented process">Processo stabile e documentato</div>
+    <div class="out-item" data-it="Dati coerenti e affidabili" data-en="Coherent and reliable data">Dati coerenti e affidabili</div>
+    <div class="out-item" data-it="Output automatici e replicabili" data-en="Automatic and replicable outputs">Output automatici e replicabili</div>
+    <div class="out-item" data-it="Riduzione tempo operativo" data-en="Reduced operational time">Riduzione tempo operativo</div>
+    <div class="out-item" data-it="Indipendenza dalle persone" data-en="Independence from people">Indipendenza dalle persone</div>
+  </div>
+</section>
+
+<!-- COSA REALIZZO -->
+<section class="section">
+  <div class="s-label" data-it="— cosa realizzo" data-en="— what I deliver">— cosa realizzo</div>
+  <h2 class="s-title" data-it="Dall'analisi al sistema funzionante" data-en="From analysis to a working system">Dall'analisi al sistema funzionante</h2>
+  <p class="s-body" data-it="Non consegno un report. Seguo il progetto end-to-end, fino al sistema che lavora da solo." data-en="I don't hand over a report. I follow the project end-to-end, to a system that runs on its own.">Non consegno un report. Seguo il progetto end-to-end, fino al sistema che lavora da solo.</p>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-num">01</div><div class="service-title" data-it="Analisi del processo" data-en="Process analysis">Analisi del processo</div><div class="service-desc" data-it="Mappo attività, sprechi e dipendenze." data-en="I map activities, waste and dependencies.">Mappo attività, sprechi e dipendenze.</div></div>
+    <div class="service-card"><div class="service-num">02</div><div class="service-title" data-it="Disegno del sistema" data-en="System design">Disegno del sistema</div><div class="service-desc" data-it="Progetto dati, logiche e flussi." data-en="I design data, logic and flows.">Progetto dati, logiche e flussi.</div></div>
+    <div class="service-card"><div class="service-num">03</div><div class="service-title" data-it="Implementazione" data-en="Implementation">Implementazione</div><div class="service-desc" data-it="Costruisco la soluzione operativa." data-en="I build the working solution.">Costruisco la soluzione operativa.</div></div>
+    <div class="service-card"><div class="service-num">04</div><div class="service-title" data-it="Automazione" data-en="Automation">Automazione</div><div class="service-desc" data-it="Output e controlli generati dal sistema." data-en="Outputs and controls generated by the system.">Output e controlli generati dal sistema.</div></div>
+    <div class="service-card"><div class="service-num">05</div><div class="service-title" data-it="Formazione" data-en="Training">Formazione</div><div class="service-desc" data-it="Le persone sanno usarlo e mantenerlo." data-en="People know how to use and maintain it.">Le persone sanno usarlo e mantenerlo.</div></div>
+  </div>
+</section>
+
+<!-- DIFFERENZA -->
+<section class="section">
+  <div class="s-label" data-it="— differenza" data-en="— difference">— differenza</div>
+  <h2 class="s-title" data-it="Cosa cambia davvero" data-en="What really changes">Cosa cambia davvero</h2>
+
+  <div class="diff-grid">
+    <div class="diff-card">
+      <div class="diff-label" data-it="consulenza tradizionale" data-en="traditional consulting">consulenza tradizionale</div>
+      <div class="diff-text" data-it="aggiunge attività" data-en="adds activities">aggiunge attività</div>
+      <div class="diff-desc" data-it="Analizza, suggerisce, lascia al cliente l'esecuzione." data-en="Analyses, suggests, leaves execution to the client.">Analizza, suggerisce, lascia al cliente l'esecuzione.</div>
+    </div>
+    <div class="diff-card hi-copper">
+      <div class="diff-label" data-it="lean thinking" data-en="lean thinking">lean thinking</div>
+      <div class="diff-text" data-it="le riduce" data-en="reduces them">le riduce</div>
+      <div class="diff-desc" data-it="Elimina ciò che non produce valore. Snellisce il flusso." data-en="Eliminates what produces no value. Streamlines the flow.">Elimina ciò che non produce valore. Snellisce il flusso.</div>
+    </div>
+    <div class="diff-card hi-amber">
+      <div class="diff-label" data-it="M System" data-en="M System">M System</div>
+      <div class="diff-text" data-it="le sostituisce" data-en="replaces them">le sostituisce</div>
+      <div class="diff-desc" data-it="Costruisce il sistema che esegue al posto delle persone." data-en="Builds the system that executes instead of people.">Costruisce il sistema che esegue al posto delle persone.</div>
+    </div>
+  </div>
+
+  <div class="diff-statement">
+    <p data-it="Progetto sistemi che eliminano il lavoro non necessario." data-en="I design systems that eliminate unnecessary work.">Progetto sistemi che eliminano il lavoro non necessario.</p>
+  </div>
+</section>
+
+<!-- CASI REALI -->
+<section class="section">
+  <div class="s-label" data-it="— system shift in action" data-en="— system shift in action">— system shift in action</div>
+  <h2 class="s-title" data-it="Cosa cambia, in concreto" data-en="What changes, concretely">Cosa cambia, in concreto</h2>
+  <p class="s-body" data-it="Da attività manuali a sistemi operativi." data-en="From manual activities to operating systems.">Da attività manuali a sistemi operativi.</p>
+  <div class="cases-grid">
+    <div class="case-card">
+      <div class="case-area" data-it="Carbon Footprint" data-en="Carbon Footprint">Carbon Footprint</div>
+      <div class="case-before-stack">
+        <span class="case-metric" data-it="12 file Excel" data-en="12 Excel files">12 file Excel</span>
+        <span class="case-metric" data-it="3 settimane di lavoro" data-en="3 weeks of work">3 settimane di lavoro</span>
+        <span class="case-metric" data-it="40 email di scambio" data-en="40 emails back-and-forth">40 email di scambio</span>
+      </div>
+      <div class="case-after-line" data-it="sistema unico con aggiornamento annuale" data-en="single system with annual updates">sistema unico con aggiornamento annuale</div>
+    </div>
+    <div class="case-card">
+      <div class="case-area" data-it="Report ESG" data-en="ESG Report">Report ESG</div>
+      <div class="case-before-stack">
+        <span class="case-metric" data-it="dati raccolti da più reparti" data-en="data collected from multiple departments">dati raccolti da più reparti</span>
+        <span class="case-metric" data-it="decine di file da consolidare" data-en="dozens of files to consolidate">decine di file da consolidare</span>
+        <span class="case-metric" data-it="settimane di consolidamento a ogni ciclo" data-en="weeks of consolidation each cycle">settimane di consolidamento a ogni ciclo</span>
+      </div>
+      <div class="case-after-line" data-it="report generato da una base dati unica" data-en="report generated from a single database">report generato da una base dati unica</div>
+    </div>
+    <div class="case-card">
+      <div class="case-area" data-it="Sistema Qualità ISO 9001" data-en="ISO 9001 Quality system">Sistema Qualità ISO 9001</div>
+      <div class="case-before-stack">
+        <span class="case-metric" data-it="procedure statiche in Word" data-en="static Word procedures">procedure statiche in Word</span>
+        <span class="case-metric" data-it="controlli fatti a mano" data-en="manual checks">controlli fatti a mano</span>
+        <span class="case-metric" data-it="versioni multiple non allineate" data-en="multiple misaligned versions">versioni multiple non allineate</span>
+      </div>
+      <div class="case-after-line" data-it="workflow strutturato con controlli integrati" data-en="structured workflow with built-in controls">workflow strutturato con controlli integrati</div>
+    </div>
+    <div class="case-card">
+      <div class="case-area" data-it="Controllo di gestione" data-en="Management control">Controllo di gestione</div>
+      <div class="case-before-stack">
+        <span class="case-metric" data-it="elaborazioni manuali ogni mese" data-en="manual processing every month">elaborazioni manuali ogni mese</span>
+        <span class="case-metric" data-it="dati ricostruiti da più fonti" data-en="data rebuilt from multiple sources">dati ricostruiti da più fonti</span>
+        <span class="case-metric" data-it="report consegnati in ritardo" data-en="reports delivered late">report consegnati in ritardo</span>
+      </div>
+      <div class="case-after-line" data-it="dashboard aggiornata automaticamente" data-en="automatically updated dashboard">dashboard aggiornata automaticamente</div>
+    </div>
+  </div>
+  <p class="cases-foot" data-it="Stessi processi. Stesso obiettivo. Meno lavoro, più affidabilità." data-en="Same processes. Same goal. Less work, more reliability.">Stessi processi. Stesso obiettivo. Meno lavoro, più affidabilità.</p>
+</section>
+
+<!-- DOVE APPLICO IL METODO -->
+<section class="section">
+  <div class="s-label" data-it="— dove applico il metodo" data-en="— where I apply the method">— dove applico il metodo</div>
+  <h2 class="s-title" data-it="Due realtà, lo stesso approccio" data-en="Two companies, the same approach">Due realtà, lo stesso approccio</h2>
+  <p class="s-body" data-it="Sulla sostenibilità il metodo è diventato servizio, con due marchi dedicati alle PMI." data-en="In sustainability the method has become a service, with two brands dedicated to SMEs.">Sulla sostenibilità il metodo è diventato servizio, con due marchi dedicati alle PMI.</p>
+  <div class="brands-grid">
+    <a class="brand-card" href="https://www.co2e.it/?utm_source=claudiomoneda&utm_medium=referral&utm_campaign=sito_personale" target="_blank" rel="noopener">
+      <div class="brand-name">CO2e</div>
+      <div class="brand-desc" data-it="Carbon Footprint di organizzazione e di prodotto (ISO 14064-1 e 14067), costi ETS2, piani di decarbonizzazione. Società che ho fondato." data-en="Organisation and product Carbon Footprint (ISO 14064-1 and 14067), ETS2 costs, decarbonisation plans. A company I founded.">Carbon Footprint di organizzazione e di prodotto (ISO 14064-1 e 14067), costi ETS2, piani di decarbonizzazione. Società che ho fondato.</div>
+      <div class="brand-link">co2e.it →</div>
+    </a>
+    <a class="brand-card" href="https://www.esg-network.it/?utm_source=claudiomoneda&utm_medium=referral&utm_campaign=sito_personale" target="_blank" rel="noopener">
+      <div class="brand-name">ESG Network</div>
+      <div class="brand-desc" data-it="Bilancio VSME, questionari ESG di clienti e banche, sostenibilità di filiera e &quot;Sostenibilità senza pensieri&quot; per gli adempimenti ambientali. Ne sono socio." data-en="VSME reporting, ESG questionnaires from clients and banks, supply-chain sustainability and environmental compliance monitoring. I am a partner.">Bilancio VSME, questionari ESG di clienti e banche, sostenibilità di filiera e "Sostenibilità senza pensieri" per gli adempimenti ambientali. Ne sono socio.</div>
+      <div class="brand-link">esg-network.it →</div>
+    </a>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section id="manifesto">
+  <p class="manifesto-quote"
+     data-it="I processi dipendono dalle persone.<br><span class=&quot;accent&quot;>I sistemi sopravvivono alle persone.</span>"
+     data-en="Processes depend on people.<br><span class=&quot;accent&quot;>Systems outlive people.</span>">I processi dipendono dalle persone.<br><span class="accent">I sistemi sopravvivono alle persone.</span></p>
+  <div class="manifesto-sig" data-it="Claudio Moneda · System Shift" data-en="Claudio Moneda · System Shift">Claudio Moneda · System Shift</div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <h2 data-it="Hai un processo che gira su Excel, email e lavoro manuale?" data-en="Got a process running on Excel, email and manual work?">Hai un processo che gira su Excel, email e lavoro manuale?</h2>
+  <p data-it="Analizziamolo insieme: ti dico se può diventare un sistema. 30 minuti, nessuna presentazione commerciale." data-en="Let's analyse it together: I'll tell you whether it can become a system. 30 minutes, no sales pitch.">Analizziamolo insieme: ti dico se può diventare un sistema. 30 minuti, nessuna presentazione commerciale.</p>
+  <a href="mailto:claudio@claudiomoneda.com" class="cta-btn">
+    <span data-it="Descrivimi il tuo processo" data-en="Describe your process">Descrivimi il tuo processo</span>
+    <span>→</span>
+  </a>
+  <p class="cta-alt" data-it="Oppure scrivimi a <a href=&quot;mailto:claudio@claudiomoneda.com&quot;>claudio@claudiomoneda.com</a> o su <a href=&quot;https://www.linkedin.com/in/claudiomoneda/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>LinkedIn</a>" data-en="Or write to <a href=&quot;mailto:claudio@claudiomoneda.com&quot;>claudio@claudiomoneda.com</a> or on <a href=&quot;https://www.linkedin.com/in/claudiomoneda/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>LinkedIn</a>">Oppure scrivimi a <a href="mailto:claudio@claudiomoneda.com">claudio@claudiomoneda.com</a> o su <a href="https://www.linkedin.com/in/claudiomoneda/" target="_blank" rel="noopener">LinkedIn</a></p>
+</section>
+
+<footer>
+  <div class="footer-name" style="display:flex;align-items:baseline;gap:0.14em;font-family:'Sora',sans-serif;font-size:12px;">
+    <span style="font-weight:300;letter-spacing:0.08em;">CLAUDIO</span><span style="font-weight:600;letter-spacing:0.06em;">MONEDA</span>
+  </div>
+  <div class="footer-mono">M System · System Shift · Lean · Data</div>
+  <div class="footer-legal">
+    <a href="/privacy.html" data-it="Privacy" data-en="Privacy">Privacy</a>
+    <span class="footer-sep">·</span>
+    <a href="/note-legali.html" data-it="Note legali" data-en="Legal notice">Note legali</a>
+    <span class="footer-sep">·</span>
+    <a href="https://www.linkedin.com/in/claudiomoneda/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+</div>
+
+<script>
+const stepsIT = [
+  { code:'M1 — VALUE',  title:'Identifico il valore reale',   q:'Cosa produce output utile per il business?',         out:'→ processo distillato',    color:'var(--amber)',  items:['Distinguo valore da non-valore','Mappa delle attività esistenti','Lean puro applicato al flusso'] },
+  { code:'M2 — WASTE',  title:'Elimino il muda digitale',      q:'Dove si nasconde lo spreco invisibile?',             out:'→ processo snellito',      color:'var(--copper)', items:['Duplicazioni e ridondanze','Attività manuali ripetitive','Ricostruzione dati e versioni incoerenti'] },
+  { code:'M3 — DATA',   title:'Struturo i dati',               q:'Come costruisco una base affidabile?',               out:'→ base dati affidabile',   color:'var(--steel)',  items:['Fonti uniche di verità','Logiche coerenti e stabili','Struttura scalabile nel tempo'] },
+  { code:'M4 — MODEL',  title:'Progetto il modello',           q:'Come trasformo il processo in regole replicabili?',  out:'→ sistema replicabile',    color:'#A0622A',       items:['Regole e logiche documentate','Calcoli e flussi decisionali','Architettura indipendente dalle persone'] },
+  { code:'M5 — SYSTEM', title:'Automatizzo',                   q:'Come faccio lavorare il sistema al posto delle persone?', out:'→ sistema autonomo', color:'#5C7A6E',       items:['Integrazione AI e automazioni','Output automatici audit-ready','Il sistema esegue, le persone decidono'] }
+];
+const stepsEN = [
+  { code:'M1 — VALUE',  title:'Identify real value',           q:'What produces useful output for the business?',      out:'→ distilled process',     color:'var(--amber)',  items:['Separate value from non-value','Map existing activities','Pure Lean applied to the flow'] },
+  { code:'M2 — WASTE',  title:'Eliminate digital muda',        q:"Where is the invisible waste hiding?",               out:'→ leaner process',        color:'var(--copper)', items:['Duplications and redundancies','Repetitive manual activities','Data rebuilding and inconsistent versions'] },
+  { code:'M3 — DATA',   title:'Structure data',                q:'How do I build a reliable foundation?',              out:'→ reliable data base',    color:'var(--steel)',  items:['Single sources of truth','Coherent and stable logic','Scalable structure over time'] },
+  { code:'M4 — MODEL',  title:'Design the model',              q:'How do I turn the process into replicable rules?',   out:'→ replicable system',     color:'#A0622A',       items:['Documented rules and logic','Calculations and decision flows','Architecture independent from people'] },
+  { code:'M5 — SYSTEM', title:'Automate',                      q:'How do I make the system work instead of people?',  out:'→ autonomous system',     color:'#5C7A6E',       items:['AI and automation integration','Automatic audit-ready outputs','The system executes, people decide'] }
+];
+
+let currentLang = 'it';
+let currentStep = 0;
+
+function selectStep(idx) {
+  currentStep = idx;
+  document.querySelectorAll('.flow-step').forEach((el,i) => el.classList.toggle('active', i===idx));
+  const s = (currentLang === 'it' ? stepsIT : stepsEN)[idx];
+  document.getElementById('d-code').textContent = s.code;
+  document.getElementById('d-code').style.color = s.color;
+  document.getElementById('d-title').textContent = s.title;
+  document.getElementById('d-q').textContent = s.q;
+  document.getElementById('d-output').textContent = s.out;
+  document.getElementById('d-list').innerHTML = s.items.map(i=>`<li>${i}</li>`).join('');
+  document.getElementById('detailCard').style.borderTopColor = s.color;
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('[data-'+lang+']').forEach(el => { el.innerHTML = el.getAttribute('data-'+lang); });
+  document.getElementById('btn-it').classList.toggle('active', lang==='it');
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  selectStep(currentStep);
+}
+
+selectStep(0);
+</script>
+</body>
+</html>
